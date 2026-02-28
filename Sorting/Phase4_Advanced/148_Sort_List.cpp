@@ -2,31 +2,21 @@
 Problem: Sort List (LeetCode 148)
 Category: Merge Sort / Linked List
 Difficulty: Medium
-
-Approach:
-1. Use slow-fast pointer to find middle.
-2. Split list into two halves.
-3. Recursively sort both halves.
-4. Merge two sorted lists.
-
-Time Complexity: O(n log n)
-Space Complexity: O(log n) (recursion stack)
 */
 
-#include<iostream>
-#include <cstddef>
+#include <iostream>
 using namespace std;
 
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
+// Definition for singly-linked list
+struct ListNode {
+    int val;
+    ListNode* next;
+
+    ListNode(int x) {
+        val = x;
+        next = nullptr;
+    }
+};
 
 class Solution {
 public:
@@ -67,10 +57,51 @@ public:
         ListNode* mid = slow->next;
         slow->next = nullptr;
 
-        // Recursively sort
         ListNode* left = sortList(head);
         ListNode* right = sortList(mid);
 
         return merge(left, right);
     }
 };
+
+// Helper function to print list
+void printList(ListNode* head) {
+    while (head) {
+        cout << head->val << " ";
+        head = head->next;
+    }
+    cout << endl;
+}
+
+// Helper function to insert at end
+ListNode* insert(ListNode* head, int val) {
+    if (!head) return new ListNode(val);
+
+    ListNode* temp = head;
+    while (temp->next)
+        temp = temp->next;
+
+    temp->next = new ListNode(val);
+    return head;
+}
+
+int main() {
+    Solution sol;
+
+    // Create linked list: 4 -> 2 -> 1 -> 3
+    ListNode* head = nullptr;
+    head = insert(head, 4);
+    head = insert(head, 2);
+    head = insert(head, 1);
+    head = insert(head, 3);
+
+    cout << "Original List: ";
+    printList(head);
+
+    head = sol.sortList(head);
+
+    cout << "Sorted List: ";
+    printList(head);
+
+    return 0;
+}
