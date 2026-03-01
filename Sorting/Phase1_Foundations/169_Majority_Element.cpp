@@ -16,9 +16,11 @@ Space Complexity: O(1) (ignoring sort recursion stack)
 #include <algorithm>
 using namespace std;
 
-class Solution {
+class Solution 
+{
 public:
-    int majorityElement(vector<int>& nums) {
+    int majorityElement(vector<int>& nums) 
+    {
         sort(nums.begin(), nums.end());
         return nums[nums.size() / 2];
     }
