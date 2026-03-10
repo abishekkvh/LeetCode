@@ -3,7 +3,7 @@ Problem: 4Sum (LeetCode 18)
 Category: Two Pointers
 Difficulty: Medium
 
-Frequently Asked In: Amazon, Microsoft, Google, Adobe
+Frequently Asked In: Amazon, Microsoft, Google, Adobe, Facebook
 
 Approach:
 1. Sort the array.
