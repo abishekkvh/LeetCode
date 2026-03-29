@@ -3,8 +3,6 @@ Problem: Remove Nth Node From End of List (LeetCode 19)
 Category: Linked List / Two Pointers
 Difficulty: Medium
 
-Frequently Asked In: Amazon, Microsoft, Google, Meta
-
 Approach:
 1. Use dummy node to handle edge cases.
 2. Move fast pointer n steps ahead.
