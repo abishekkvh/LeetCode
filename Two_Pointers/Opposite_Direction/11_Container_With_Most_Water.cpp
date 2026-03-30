@@ -3,8 +3,6 @@ Problem: Container With Most Water (LeetCode 11)
 Category: Two Pointers
 Difficulty: Medium
 
-Frequently Asked In: Amazon, Google, Microsoft, Meta, Apple
-
 Approach:
 1. Start with two pointers at both ends.
 2. Calculate area.
