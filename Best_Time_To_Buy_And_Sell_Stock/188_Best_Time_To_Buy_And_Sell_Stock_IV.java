@@ -22,7 +22,9 @@ Time Complexity: O(k * n)
 Space Complexity: O(k * n)
 */
 
-class Solution {
+package Best_Time_To_Buy_And_Sell_Stock;
+
+class Best_Time_To_Buy_And_Sell_Stock_IV {
     public int maxProfit(int k, int[] prices) 
     {
         int n = prices.length;

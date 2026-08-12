@@ -1,3 +1,5 @@
+package Two_Pointers.Opposite_Direction;
+
 class Two_Sum_II {
     public int[] twoSum(int[] numbers, int target) {
         int left = 0;

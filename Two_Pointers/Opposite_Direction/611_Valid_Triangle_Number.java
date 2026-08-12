@@ -14,6 +14,8 @@ Time Complexity: O(n^2)
 Space Complexity: O(log n) (due to sorting)
 */
 
+package Two_Pointers.Opposite_Direction;
+
 import java.util.Arrays;
 
 class Valid_Triangle_Number {
