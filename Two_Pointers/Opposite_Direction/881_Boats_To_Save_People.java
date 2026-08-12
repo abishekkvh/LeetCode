@@ -22,6 +22,8 @@ Space Complexity: O(1) or O(log n) depending on the sorting algorithm
 2 3 4
 */
 
+package Two_Pointers.Opposite_Direction;
+
 import java.util.Arrays;
 
 class Boats_To_Save_People {

@@ -16,6 +16,8 @@ Time Complexity: O(n)
 Space Complexity: O(1)
 */
 
+package Two_Pointers.Opposite_Direction;
+
 class Rotate_List {
     public ListNode rotateRight(ListNode head, int k) {
         if (head == null || head.next == null || k == 0) {

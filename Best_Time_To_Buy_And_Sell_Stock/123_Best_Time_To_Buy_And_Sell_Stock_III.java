@@ -21,7 +21,9 @@ Time Complexity: O(n)
 Space Complexity: O(n)
 */
 
-class Solution {
+package Best_Time_To_Buy_And_Sell_Stock;
+
+class Best_Time_To_Buy_And_Sell_Stock_III {
     public int maxProfit(int[] prices) 
     {
         if (prices == null || prices.length < 2) 

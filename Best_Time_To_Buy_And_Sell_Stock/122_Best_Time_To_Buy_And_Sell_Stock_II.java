@@ -10,7 +10,9 @@ Time Complexity: O(n)
 Space Complexity: O(1)
 */
 
-class Solution {
+package Best_Time_To_Buy_And_Sell_Stock;
+
+class Best_Time_To_Buy_And_Sell_Stock_II {
     public int maxProfit(int[] prices) {
 
         int profit = 0;
