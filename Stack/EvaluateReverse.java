@@ -1,4 +1,4 @@
-package Stack;
+import java.util.*;
 
 /*
 Problem: Evaluate Reverse Polish Notation (LeetCode 150)
@@ -30,23 +30,17 @@ Space Complexity: O(n) for storing operands in the stack.
 
 import java.util.Stack;
 
-public class EvaluateReverse 
-{
-    public int evalRPN(String[] tokens) 
-    {
+public class EvaluateReverse {
+    public int evalRPN(String[] tokens) {
         Stack<Integer> stack = new Stack<>();
 
-        for (String token : tokens) 
-        {
-            if (isOperator(token)) 
-            {
+        for (String token : tokens) {
+            if (isOperator(token)) {
                 int b = stack.pop();
                 int a = stack.pop();
                 int result = applyOperator(a, b, token);
                 stack.push(result);
-            } 
-            else 
-            {
+            } else {
                 stack.push(Integer.parseInt(token));
             }
         }
@@ -54,39 +48,35 @@ public class EvaluateReverse
         return stack.pop();
     }
 
-    private boolean isOperator(String token) 
-    {
+    private boolean isOperator(String token) {
         return token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/");
     }
 
-    private int applyOperator(int a, int b, String operator) 
-    {
-        switch (operator) 
-        {
-            case "+": 
+    private int applyOperator(int a, int b, String operator) {
+        switch (operator) {
+            case "+":
                 return a + b;
-            case "-": 
+            case "-":
                 return a - b;
-            case "*": 
+            case "*":
                 return a * b;
-            case "/": 
+            case "/":
                 return a / b;
-            default: 
+            default:
                 throw new IllegalArgumentException();
         }
     }
 
-    public static void main(String[] args) 
-    {
+    public static void main(String[] args) {
         EvaluateReverse solver = new EvaluateReverse();
 
-        String[] tokens1 = {"2", "1", "+", "3", "*"};
+        String[] tokens1 = { "2", "1", "+", "3", "*" };
         System.out.println(solver.evalRPN(tokens1));
 
-        String[] tokens2 = {"4", "13", "5", "/", "+"};
+        String[] tokens2 = { "4", "13", "5", "/", "+" };
         System.out.println(solver.evalRPN(tokens2));
 
-        String[] tokens3 = {"10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"};
+        String[] tokens3 = { "10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+" };
         System.out.println(solver.evalRPN(tokens3));
     }
 }

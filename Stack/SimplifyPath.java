@@ -1,4 +1,4 @@
-package Stack;
+import java.util.*;
 
 /*
 Problem: Simplify Path (LeetCode 71)
