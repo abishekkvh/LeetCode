@@ -1,5 +1,10 @@
 {
     "java.project.sourcePaths": [
         "."
-    ]
+    ],
+    "java.format.settings.url": ".vscode/eclipse-formatter.xml",
+    "java.format.settings.profile": "Allman",
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java"
+    }
 }

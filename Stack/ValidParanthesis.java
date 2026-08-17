@@ -1,4 +1,4 @@
-package Stack;
+import java.util.*;
 
 /*
 Problem: Valid Parentheses (LeetCode 20)
