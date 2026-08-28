@@ -35,7 +35,7 @@ class ReorderList {
         if (head == null || head.next == null)
             return;
 
-        Stack<ListNode> stack = new Stack<>();
+        Stack<ListNode> st  ack = new Stack<>();
         ListNode temp = head;
 
         // Put all nodes into stack
