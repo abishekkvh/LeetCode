@@ -7,7 +7,7 @@ public class SearchA2DArray
 
         int low = 0; int high = m * n - 1;
 
-        while(low <= high)
+        while(low < high)
         {
             int mid = (low + high) / 2;
             int value = matrix[mid / n][mid % n];
