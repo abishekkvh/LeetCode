@@ -2,7 +2,7 @@
 
 > High-performance, pattern-oriented algorithmic reference in modern C++ and Java, focusing on formal asymptotic complexity bounds, zero-allocation in-place mutations, cache locality, and state-machine dynamic programming.
 
-**Languages:** Java (JDK 17+) | C++ (ISO C++17) &nbsp;|&nbsp; **Implementations:** 68 Production-Grade Solutions &nbsp;|&nbsp; **Focus:** Time/Space Asymptotics, Invariant Correctness, Low-Overhead Primitives
+**Languages:** Java (JDK 17+) | C++ (ISO C++17) &nbsp;|&nbsp; **Implementations:** 69 Production-Grade Solutions &nbsp;|&nbsp; **Focus:** Time/Space Asymptotics, Invariant Correctness, Low-Overhead Primitives
 
 ---
 
@@ -209,6 +209,7 @@ Decomposition into optimal substructure, finite-state machine stock series, and 
 | **LC 122** | Best Time to Buy and Sell Stock II | `Dynamic_Programming/State_Machines/0122_Best_Time_to_Buy_and_Sell_Stock_II.java` | Java | Greedy peak-valley accumulation: $\sum \max(0, P[i] - P[i-1])$ | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
 | **LC 123** | Best Time to Buy and Sell Stock III | `Dynamic_Programming/State_Machines/0123_Best_Time_to_Buy_and_Sell_Stock_III.java` | Java | 4-state finite state machine (Buy1, Sell1, Buy2, Sell2) | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
 | **LC 188** | Best Time to Buy and Sell Stock IV | `Dynamic_Programming/State_Machines/0188_Best_Time_to_Buy_and_Sell_Stock_IV.java` | Java | Generalized $K$-transaction DP with online $\text{maxDiff}$ optimization | $\mathcal{O}(k \cdot N)$ | $\mathcal{O}(k \cdot N)$ |
+| **LC 62** | Unique Paths | `Dynamic_Programming/2D_Combinatorial/0062_Unique_Paths.java` | Java | 2D lattice grid transition: $dp[i][j] = dp[i+1][j] + dp[i][j+1]$ | $\mathcal{O}(m \cdot n)$ | $\mathcal{O}(m \cdot n)$ |
 | **LC 118** | Pascal's Triangle | `Dynamic_Programming/2D_Combinatorial/0118_Pascals_Triangle.cpp` | C++ | Dynamic 2D construction using adjacent parent sum | $\mathcal{O}(N^2)$ | $\mathcal{O}(1)$ |
 | **Graph** | Floyd-Warshall | `Dynamic_Programming/2D_Combinatorial/Floyd_Warshall_All_Pairs_Shortest_Path.cpp` | C++ | All-pairs shortest paths via dynamic triple nested intermediate nodes | $\mathcal{O}(V^3)$ | $\mathcal{O}(V^2)$ |
 
@@ -262,7 +263,7 @@ Orthogonal matrix traversals and connected component counting.
 |-- Dynamic_Programming/                    # Linear transitions, state machines & 2D DP
 |   |-- 1D_Linear/                          # LC 70, 198, 322, 338, 1137, Fibonacci
 |   |-- State_Machines/                     # Stock Series: LC 121, 122, 123, 188
-|   `-- 2D_Combinatorial/                   # LC 118, Floyd-Warshall
+|   `-- 2D_Combinatorial/                   # LC 62, 118, Floyd-Warshall
 |-- Backtracking/                           # Branch-and-bound combinatorial generation
 |   `-- 0047_Permutations_II.cpp
 `-- Graph/                                  # Matrix BFS wavefront and connectivity
