@@ -2,7 +2,7 @@
 
 > High-performance, pattern-oriented algorithmic reference in modern C++ and Java, focusing on formal asymptotic complexity bounds, zero-allocation in-place mutations, cache locality, and state-machine dynamic programming.
 
-**Languages:** Java (JDK 17+) | C++ (ISO C++17) &nbsp;|&nbsp; **Implementations:** 70+ Verified Solutions &nbsp;|&nbsp; **Focus:** Time/Space Asymptotics, Invariant Correctness, Low-Overhead Primitives
+**Languages:** Java (JDK 17+) | C++ (ISO C++17) &nbsp;|&nbsp; **Implementations:** 68 Production-Grade Solutions &nbsp;|&nbsp; **Focus:** Time/Space Asymptotics, Invariant Correctness, Low-Overhead Primitives
 
 ---
 
@@ -10,7 +10,7 @@
 
 Algorithmic interviews and large-scale software engineering demand more than brute-force pattern memorization. Real-world systems require optimal computational complexity, minimal garbage collection pressure, cache-conscious data access patterns, and rigorous loop invariants.
 
-This repository serves as an enterprise-grade algorithmic catalog. Solutions are organized not by arbitrary sequence, but by fundamental computational paradigms: opposite/same-direction dual pointers, rolling sliding-window hash states, monotonic predicate binary search, monotonic stack and queue maintenance, bit-level transformations, and multi-state dynamic programming. Every implementation is written with production rigor: strict bounds checking, overflow-safe arithmetic, explicit time/space asymptotic guarantees, and deterministic local test harnesses.
+This repository serves as an enterprise-grade algorithmic catalog. Solutions are organized not by arbitrary sequence or daily logs, but by fundamental computational paradigms: opposite/same-direction dual pointers, rolling sliding-window hash states, monotonic predicate binary search, monotonic stack and queue maintenance, bit-level transformations, and multi-state dynamic programming. Every implementation is written with production rigor: strict bounds checking, overflow-safe arithmetic, explicit time/space asymptotic guarantees, and deterministic local test harnesses.
 
 ---
 
@@ -107,131 +107,124 @@ flowchart TD
 
 ## Module Index & Technical Breakdown
 
-### 1. Two Pointers: Opposite Direction
-Bidirectional pointer convergence over sorted or bounded structures. Eliminates redundant subproblems by discarding monotonic search halves in $\mathcal{O}(1)$ per iteration.
+### 1. Arrays, Inverted Hashing & Matrix
+Direct-address lookup, frequency histogramming, inverted indexing, and 2D matrix transformations.
 
-| LeetCode ID | Problem Name | Language | Strategy / Core Mechanism | Time Complexity | Space Complexity |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **LC 11** | Container With Most Water | C++ | Greedy inward movement of minimum bounding height | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
-| **LC 61** | Rotate List | Java | Length calculation, circular ring link, modular offset split | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
-| **LC 125** | Valid Palindrome | C++ | Alphanumeric filter with bidirectional character equality verification | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
-| **LC 167** | Two Sum II - Input Array Is Sorted | Java | Monotonic sum evaluation with inward boundary shift | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
-| **LC 611** | Valid Triangle Number | Java | Array sort + reverse longest side anchor + two-pointer pair count | $\mathcal{O}(N^2)$ | $\mathcal{O}(\log N)$ |
-| **LC 881** | Boats to Save People | Java | Greedy pairing of heaviest and lightest elements within weight limit | $\mathcal{O}(N \log N)$ | $\mathcal{O}(\log N)$ |
+| LeetCode ID | Problem Name | File Path | Language | Strategy / Core Mechanism | Time Complexity | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **LC 1** | Two Sum | `Arrays_and_Hashing/0001_Two_Sum.java` | Java | Single-pass inverted index mapping complement to index | $\mathcal{O}(N)$ | $\mathcal{O}(N)$ |
+| **LC 49** | Group Anagrams | `Arrays_and_Hashing/0049_Group_Anagrams.cpp` | C++ | Canonical sorted key indexing in unordered hash map | $\mathcal{O}(N \cdot K \log K)$ | $\mathcal{O}(N \cdot K)$ |
+| **LC 169** | Majority Element | `Arrays_and_Hashing/0169_Majority_Element.java` | Java | Frequency map counting / linear hash aggregation | $\mathcal{O}(N)$ | $\mathcal{O}(N)$ |
+| **LC 205** | Isomorphic Strings | `Arrays_and_Hashing/0205_Isomorphic_Strings.java` | Java | Dual forward-backward character mapping validation | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **LC 217** | Contains Duplicate | `Arrays_and_Hashing/0217_Contains_Duplicate.java` | Java | Hash set insertion with early-exit duplicate detection | $\mathcal{O}(N)$ | $\mathcal{O}(N)$ |
+| **LC 219** | Contains Duplicate II | `Arrays_and_Hashing/0219_Contains_Duplicate_II.java` | Java | Sliding hash map tracking latest index within distance $K$ | $\mathcal{O}(N)$ | $\mathcal{O}(K)$ |
+| **LC 242** | Valid Anagram | `Arrays_and_Hashing/0242_Valid_Anagram.java` | Java | Frequency counting array with delta cancellation | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **LC 349** | Intersection of Two Arrays | `Arrays_and_Hashing/0349_Intersection_of_Two_Arrays.java` | Java | Hash set intersection filtering duplicates | $\mathcal{O}(N + M)$ | $\mathcal{O}(N)$ |
+| **LC 383** | Ransom Note | `Arrays_and_Hashing/0383_Ransom_Note.java` | Java | Frequency count subtraction over source character set | $\mathcal{O}(N + M)$ | $\mathcal{O}(1)$ |
+| **LC 387** | First Unique Character in a String | `Arrays_and_Hashing/0387_First_Unique_Character_in_a_String.java` | Java | Two-pass frequency histogram and first unique scan | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **LC 2215** | Find the Difference of Two Arrays | `Arrays_and_Hashing/2215_Find_the_Difference_of_Two_Arrays.java` | Java | Dual set construction with symmetric difference subtraction | $\mathcal{O}(N + M)$ | $\mathcal{O}(N + M)$ |
+| **LC 867** | Transpose Matrix | `Arrays_and_Hashing/Matrix/0867_Transpose_Matrix.java` | Java | Dimension inversion: $B[j][i] = A[i][j]$ | $\mathcal{O}(M \cdot N)$ | $\mathcal{O}(M \cdot N)$ |
+| **LC 1572** | Matrix Diagonal Sum | `Arrays_and_Hashing/Matrix/1572_Matrix_Diagonal_Sum.java` | Java | Single-pass primary and secondary diagonal accumulation | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
 
-### 2. Two Pointers: Same Direction (Fast & Slow)
-Differential pointer indexing for in-place array manipulation and linked list traversal.
+### 2. Two Pointers & Sliding Window
+Bidirectional pointer convergence, fast-and-slow differential strides, and dynamic-window constraints.
 
-| LeetCode ID | Problem Name | Language | Strategy / Core Mechanism | Time Complexity | Space Complexity |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **LC 19** | Remove Nth Node From End of List | C++ | $K$-step lead pointer traversal to locate removal precursor | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
-| **LC 26** | Remove Duplicates from Sorted Array | C++ | Unique element boundary write-pointer synchronization | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
-| **LC 283** | Move Zeroes | C++ | Non-zero element partition sweep with in-place swapping | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
-| **LC 876** | Middle of the Linked List | C++ | Floyd's cycle detection principle ($2\times$ fast pointer vs $1\times$ slow) | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
-| **LC 986** | Interval List Intersections | Java | Parallel sweep across sorted intervals using boundary comparison | $\mathcal{O}(M + N)$ | $\mathcal{O}(1)$ |
+#### Opposite Direction
+| LeetCode ID | Problem Name | File Path | Language | Strategy / Core Mechanism | Time Complexity | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **LC 11** | Container With Most Water | `Two_Pointers/Opposite_Direction/0011_Container_With_Most_Water.cpp` | C++ | Greedy inward movement of minimum bounding height | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **LC 16** | 3Sum Closest | `Two_Pointers/Opposite_Direction/0016_3Sum_Closest.cpp` | C++ | Sort + fixed anchor + bilateral two-pointer distance minimization | $\mathcal{O}(N^2)$ | $\mathcal{O}(\log N)$ |
+| **LC 18** | 4Sum | `Two_Pointers/Opposite_Direction/0018_4Sum.cpp` | C++ | Nested dual anchors + inward two-pointer with duplicate skipping | $\mathcal{O}(N^3)$ | $\mathcal{O}(\log N)$ |
+| **LC 42** | Trapping Rain Water | `Two_Pointers/Opposite_Direction/0042_Trapping_Rain_Water.cpp` | C++ | Bilateral maximum elevation tracking with inward convergence | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **LC 61** | Rotate List | `Two_Pointers/Opposite_Direction/0061_Rotate_List.java` | Java | Length calculation, circular ring link, modular offset split | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **LC 125** | Valid Palindrome | `Two_Pointers/Opposite_Direction/0125_Valid_Palindrome.cpp` | C++ | Alphanumeric filter with bidirectional character equality verification | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **LC 167** | Two Sum II - Input Array Is Sorted | `Two_Pointers/Opposite_Direction/0167_Two_Sum_II.java` | Java | Monotonic sum evaluation with inward boundary shift | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **LC 611** | Valid Triangle Number | `Two_Pointers/Opposite_Direction/0611_Valid_Triangle_Number.java` | Java | Array sort + reverse longest side anchor + two-pointer pair count | $\mathcal{O}(N^2)$ | $\mathcal{O}(\log N)$ |
+| **LC 680** | Valid Palindrome II | `Two_Pointers/Opposite_Direction/0680_Valid_Palindrome_II.cpp` | C++ | Two pointers with single-character branch mismatch tolerance | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **LC 881** | Boats to Save People | `Two_Pointers/Opposite_Direction/0881_Boats_To_Save_People.java` | Java | Greedy pairing of heaviest and lightest elements within weight limit | $\mathcal{O}(N \log N)$ | $\mathcal{O}(\log N)$ |
 
-### 3. Two Pointers: Sliding Window
-Dynamic and fixed-size contiguous sequence evaluation maintaining dynamic invariant constraints.
+#### Same Direction (Fast & Slow)
+| LeetCode ID | Problem Name | File Path | Language | Strategy / Core Mechanism | Time Complexity | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **LC 19** | Remove Nth Node From End of List | `Two_Pointers/Same_Direction/0019_Remove_Nth_Node_From_End_of_List.cpp` | C++ | $K$-step lead pointer traversal to locate removal precursor | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **LC 26** | Remove Duplicates from Sorted Array | `Two_Pointers/Same_Direction/0026_Remove_Duplicates_from_Sorted_Array.cpp` | C++ | Unique element boundary write-pointer synchronization | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **LC 80** | Remove Duplicates from Sorted Array II | `Two_Pointers/Same_Direction/0080_Remove_Duplicates_from_Sorted_Array_II.cpp` | C++ | Fast/slow pointer keeping count $\le 2$ via $A[fast] \ne A[slow-2]$ | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **LC 283** | Move Zeroes | `Two_Pointers/Same_Direction/0283_Move_Zeroes.cpp` | C++ | Non-zero element partition sweep with in-place swapping | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **LC 876** | Middle of the Linked List | `Two_Pointers/Same_Direction/0876_Middle_of_the_Linked_List.cpp` | C++ | Floyd's cycle detection principle ($2\times$ fast pointer vs $1\times$ slow) | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **LC 986** | Interval List Intersections | `Two_Pointers/Same_Direction/0986_Interval_List_Intersections.java` | Java | Parallel sweep across sorted intervals using boundary comparison | $\mathcal{O}(M + N)$ | $\mathcal{O}(1)$ |
 
-| LeetCode ID | Problem Name | Language | Strategy / Core Mechanism | Time Complexity | Space Complexity |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **LC 3** | Longest Substring Without Repeating Characters | C++ | ASCII frequency / index tracker with left window boundary jump | $\mathcal{O}(N)$ | $\mathcal{O}(\min(N, \Sigma))$ |
-| **LC 30** | Substring with Concatenation of All Words | C++ | Multi-offset sliding window over uniform token chunks | $\mathcal{O}(N \cdot L)$ | $\mathcal{O}(M \cdot L)$ |
-| **LC 76** | Minimum Window Substring | C++ | Direct-address frequency table with match counter and left contraction | $\mathcal{O}(N + M)$ | $\mathcal{O}(1)$ |
-| **LC 438** | Find All Anagrams in a String | C++ | Fixed window size $K$ sliding frequency match against target | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
-| **LC 567** | Permutation in String | C++ | Fixed rolling window frequency vector comparison | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
-| **LC 643** | Maximum Average Subarray I | C++ | Fixed-size rolling sum sliding window | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
-| **LC 2958** | Longest Subarray With at Most K Frequency | Java | Frequency map expansion with contractive left pointer | $\mathcal{O}(N)$ | $\mathcal{O}(U)$ |
+#### Sliding Window
+| LeetCode ID | Problem Name | File Path | Language | Strategy / Core Mechanism | Time Complexity | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **LC 3** | Longest Substring Without Repeating Characters | `Two_Pointers/Sliding_Window/0003_Longest_Substring_Without_Repeating_Characters.cpp` | C++ | ASCII frequency / index tracker with left window boundary jump | $\mathcal{O}(N)$ | $\mathcal{O}(\min(N, \Sigma))$ |
+| **LC 30** | Substring with Concatenation of All Words | `Two_Pointers/Sliding_Window/0030_Substring_with_Concatenation_of_All_Words.cpp` | C++ | Multi-offset sliding window over uniform token chunks | $\mathcal{O}(N \cdot L)$ | $\mathcal{O}(M \cdot L)$ |
+| **LC 76** | Minimum Window Substring | `Two_Pointers/Sliding_Window/0076_Minimum_Window_Substring.cpp` | C++ | Direct-address frequency table with match counter and left contraction | $\mathcal{O}(N + M)$ | $\mathcal{O}(1)$ |
+| **LC 438** | Find All Anagrams in a String | `Two_Pointers/Sliding_Window/0438_Find_All_Anagrams_in_a_String.cpp` | C++ | Fixed window size $K$ sliding frequency match against target | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **LC 567** | Permutation in String | `Two_Pointers/Sliding_Window/0567_Permutation_in_String.cpp` | C++ | Fixed rolling window frequency vector comparison | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **LC 643** | Maximum Average Subarray I | `Two_Pointers/Sliding_Window/0643_Maximum_Average_Subarray_I.cpp` | C++ | Fixed-size rolling sum sliding window | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **LC 2958** | Longest Subarray With at Most K Frequency | `Two_Pointers/Sliding_Window/2958_Length_of_Longest_Subarray_With_at_Most_K_Frequency.java` | Java | Frequency map expansion with contractive left pointer | $\mathcal{O}(N)$ | $\mathcal{O}(U)$ |
 
-### 4. Binary Search & Logarithmic Partitioning
-Discrete bisection over ordered domains, rotated sequences, and mathematical invariants.
+### 3. Binary Search & Logarithmic Partitioning
+Discrete bisection over ordered arrays, 2D matrices, rotated sequences, and mathematical invariants.
 
-| LeetCode ID | Problem Name | Language | Strategy / Core Mechanism | Time Complexity | Space Complexity |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **LC 33** | Search in Rotated Sorted Array | C++ | Sorted half identification with target range containment test | $\mathcal{O}(\log N)$ | $\mathcal{O}(1)$ |
-| **LC 34** | Find First and Last Position | C++ | Dual binary search for lower and upper boundary bounds | $\mathcal{O}(\log N)$ | $\mathcal{O}(1)$ |
-| **LC 35** | Search Insert Position | C++ | Standard lower-bound bisection ($A[i] \ge target$) | $\mathcal{O}(\log N)$ | $\mathcal{O}(1)$ |
-| **LC 69** | Sqrt(x) | C++ | Monotonic integer range search with overflow-safe multiplication | $\mathcal{O}(\log x)$ | $\mathcal{O}(1)$ |
-| **LC 153** | Find Minimum in Rotated Sorted Array | C++ / Java | Comparison against right boundary to isolate inflection point | $\mathcal{O}(\log N)$ | $\mathcal{O}(1)$ |
-| **LC 154** | Find Minimum in Rotated Sorted Array II | Java | Duplicate resolution via high-index boundary reduction | $\mathcal{O}(\log N)$ avg | $\mathcal{O}(1)$ |
-| **LC 162** | Find Peak Element | C++ | Slope gradient bisection ($A[mid] > A[mid+1]$) | $\mathcal{O}(\log N)$ | $\mathcal{O}(1)$ |
-| **LC 704** | Binary Search | C++ | Canonical closed-interval $[low, high]$ bisection | $\mathcal{O}(\log N)$ | $\mathcal{O}(1)$ |
-| **LC 74** | Search a 2D Matrix | Java | Virtual 1D index mapping: $\text{row} = \lfloor \frac{m}{C} \rfloor, \text{col} = m \pmod C$ | $\mathcal{O}(\log(R \cdot C))$ | $\mathcal{O}(1)$ |
+| LeetCode ID | Problem Name | File Path | Language | Strategy / Core Mechanism | Time Complexity | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **LC 33** | Search in Rotated Sorted Array | `Binary_Search/1D_Arrays/0033_Search_in_Rotated_Sorted_Array.cpp` | C++ | Sorted half identification with target range containment test | $\mathcal{O}(\log N)$ | $\mathcal{O}(1)$ |
+| **LC 34** | Find First and Last Position | `Binary_Search/1D_Arrays/0034_Find_First_and_Last_Position.cpp` | C++ | Dual binary search for lower and upper boundary bounds | $\mathcal{O}(\log N)$ | $\mathcal{O}(1)$ |
+| **LC 35** | Search Insert Position | `Binary_Search/1D_Arrays/0035_Search_Insert_Position.cpp` | C++ | Standard lower-bound bisection ($A[i] \ge target$) | $\mathcal{O}(\log N)$ | $\mathcal{O}(1)$ |
+| **LC 153** | Find Minimum in Rotated Sorted Array | `Binary_Search/1D_Arrays/0153_Find_Minimum_in_Rotated_Sorted_Array.cpp` | C++ | Comparison against right boundary to isolate inflection point | $\mathcal{O}(\log N)$ | $\mathcal{O}(1)$ |
+| **LC 153** | Find Minimum in Rotated Sorted Array | `Binary_Search/1D_Arrays/0153_Find_Minimum_in_Rotated_Sorted_Array.java` | Java | Java implementation of inflection bisection | $\mathcal{O}(\log N)$ | $\mathcal{O}(1)$ |
+| **LC 162** | Find Peak Element | `Binary_Search/1D_Arrays/0162_Find_Peak_Element.cpp` | C++ | Slope gradient bisection ($A[mid] > A[mid+1]$) | $\mathcal{O}(\log N)$ | $\mathcal{O}(1)$ |
+| **LC 704** | Binary Search | `Binary_Search/1D_Arrays/0704_Binary_Search.cpp` | C++ | Canonical closed-interval $[low, high]$ bisection | $\mathcal{O}(\log N)$ | $\mathcal{O}(1)$ |
+| **LC 74** | Search a 2D Matrix | `Binary_Search/2D_Matrices/0074_Search_a_2D_Matrix.java` | Java | Virtual 1D index mapping: $\text{row} = \lfloor \frac{m}{C} \rfloor, \text{col} = m \pmod C$ | $\mathcal{O}(\log(R \cdot C))$ | $\mathcal{O}(1)$ |
+| **LC 154** | Find Minimum in Rotated Sorted Array II | `Binary_Search/2D_Matrices/0154_Find_Minimum_in_Rotated_Sorted_Array_II.java` | Java | Duplicate resolution via high-index boundary reduction | $\mathcal{O}(\log N)$ avg | $\mathcal{O}(1)$ |
+| **LC 69** | Sqrt(x) | `Binary_Search/Domain_Search/0069_Sqrt_x.cpp` | C++ | Monotonic integer range search with overflow-safe multiplication | $\mathcal{O}(\log x)$ | $\mathcal{O}(1)$ |
 
-### 5. Multi-Pointer Sum & Trapping Water
-Advanced multidimensional pointer coordination and boundary elevation tracking.
+### 4. Monotonic Stack & Queue Adapters
+LIFO ordering invariants for nearest greater elements, path tokenization, and FIFO state tracking.
 
-| LeetCode ID | Problem Name | Language | Strategy / Core Mechanism | Time Complexity | Space Complexity |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **LC 16** | 3Sum Closest | C++ | Sort + fixed anchor + bilateral two-pointer distance minimization | $\mathcal{O}(N^2)$ | $\mathcal{O}(\log N)$ |
-| **LC 18** | 4Sum | C++ | Nested dual anchors + inward two-pointer with duplicate skipping | $\mathcal{O}(N^3)$ | $\mathcal{O}(\log N)$ |
-| **LC 42** | Trapping Rain Water | C++ | Bilateral maximum elevation tracking with inward pointer convergence | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
-| **LC 80** | Remove Duplicates from Sorted Array II | C++ | Fast/slow pointer keeping count $\le 2$ via $A[fast] \ne A[slow-2]$ | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
-| **LC 680** | Valid Palindrome II | C++ | Two pointers with single-character branch mismatch tolerance | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| LeetCode ID | Problem Name | File Path | Language | Strategy / Core Mechanism | Time Complexity | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **LC 739** | Daily Temperatures | `Stack_and_Queue/Monotonic_Stack/0739_Daily_Temperatures.java` | Java | Monotonic decreasing index stack for next warmer day span | $\mathcal{O}(N)$ | $\mathcal{O}(N)$ |
+| **LC 20** | Valid Parentheses | `Stack_and_Queue/LIFO_Evaluation/0020_Valid_Parentheses.java` | Java | Bracket matching with top-of-stack validation | $\mathcal{O}(N)$ | $\mathcal{O}(N)$ |
+| **LC 71** | Simplify Path | `Stack_and_Queue/LIFO_Evaluation/0071_Simplify_Path.java` | Java | POSIX path tokenization with directory pop/push resolution | $\mathcal{O}(N)$ | $\mathcal{O}(N)$ |
+| **LC 143** | Reorder List | `Stack_and_Queue/LIFO_Evaluation/0143_Reorder_List.java` | Java | Stack-assisted node collection paired with dual-end link splicing | $\mathcal{O}(N)$ | $\mathcal{O}(N)$ |
+| **LC 150** | Evaluate Reverse Polish Notation | `Stack_and_Queue/LIFO_Evaluation/0150_Evaluate_Reverse_Polish_Notation.java` | Java | Operand stack with binary operator reduction | $\mathcal{O}(N)$ | $\mathcal{O}(N)$ |
+| **LC 682** | Baseball Game | `Stack_and_Queue/LIFO_Evaluation/0682_Baseball_Game.java` | Java | Record state simulation via dynamic score stack | $\mathcal{O}(N)$ | $\mathcal{O}(N)$ |
+| **LC 225** | Implement Stack using Queues | `Stack_and_Queue/Queue_Adapters/0225_Implement_Stack_using_Queues.java` | Java | Single queue rotation on push to preserve LIFO order | $\mathcal{O}(N)$ push, $\mathcal{O}(1)$ pop | $\mathcal{O}(N)$ |
+| **LC 933** | Number of Recent Calls | `Stack_and_Queue/Queue_Adapters/0933_Number_of_Recent_Calls.java` | Java | Monotonic sliding time window queue eviction ($t - 3000$) | $\mathcal{O}(1)$ amortized | $\mathcal{O}(W)$ |
 
-### 6. Dynamic Programming & State Machines
-Decomposition into optimal substructure with memoization and iterative state compaction.
+### 5. Dynamic Programming & State Machines
+Decomposition into optimal substructure, finite-state machine stock series, and combinatorial lattices.
 
-| LeetCode ID | Problem Name | Language | Strategy / Core Mechanism | Time Complexity | Space Complexity |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **LC 70** | Climbing Stairs | C++ | Fibonacci transition $dp[i] = dp[i-1] + dp[i-2]$ | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
-| **LC 118** | Pascal's Triangle | C++ | Dynamic 2D construction using adjacent parent sum | $\mathcal{O}(N^2)$ | $\mathcal{O}(1)$ |
-| **LC 121** | Best Time to Buy and Sell Stock I | Java | Prefix minimum price maintenance with max single-day spread | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
-| **LC 122** | Best Time to Buy and Sell Stock II | Java | Greedy peak-valley accumulation: $\sum \max(0, P[i] - P[i-1])$ | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
-| **LC 123** | Best Time to Buy and Sell Stock III | Java | 4-state finite state machine (Buy1, Sell1, Buy2, Sell2) | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
-| **LC 188** | Best Time to Buy and Sell Stock IV | Java | Generalized $K$-transaction DP with online $\text{maxDiff}$ optimization | $\mathcal{O}(k \cdot N)$ | $\mathcal{O}(k \cdot N)$ |
-| **LC 198** | House Robber | C++ | Non-adjacent optimal choice: $\max(dp[i-1], dp[i-2] + nums[i])$ | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
-| **LC 322** | Coin Change | C++ | Unbounded knapsack minimum-coin bottom-up DP | $\mathcal{O}(S \cdot N)$ | $\mathcal{O}(S)$ |
-| **LC 338** | Counting Bits | C++ | Bitwise transition: $dp[i] = dp[i \gg 1] + (i \ \& \ 1)$ | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
-| **LC 1137** | N-th Tribonacci Number | C++ | Rolling 3-variable recurrence register | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
-| **Graph** | Floyd-Warshall (`shortestPair.cpp`) | C++ | All-pairs shortest paths via dynamic triple nested intermediate nodes | $\mathcal{O}(V^3)$ | $\mathcal{O}(V^2)$ |
+| LeetCode ID | Problem Name | File Path | Language | Strategy / Core Mechanism | Time Complexity | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **LC 70** | Climbing Stairs | `Dynamic_Programming/1D_Linear/0070_Climbing_Stairs.cpp` | C++ | Fibonacci transition $dp[i] = dp[i-1] + dp[i-2]$ | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **LC 198** | House Robber | `Dynamic_Programming/1D_Linear/0198_House_Robber.cpp` | C++ | Non-adjacent optimal choice: $\max(dp[i-1], dp[i-2] + nums[i])$ | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **LC 322** | Coin Change | `Dynamic_Programming/1D_Linear/0322_Coin_Change.cpp` | C++ | Unbounded knapsack minimum-coin bottom-up DP | $\mathcal{O}(S \cdot N)$ | $\mathcal{O}(S)$ |
+| **LC 338** | Counting Bits | `Dynamic_Programming/1D_Linear/0338_Counting_Bits.cpp` | C++ | Bitwise transition: $dp[i] = dp[i \gg 1] + (i \ \& \ 1)$ | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **LC 1137** | N-th Tribonacci Number | `Dynamic_Programming/1D_Linear/1137_N-th_Tribonacci_Number.cpp` | C++ | Rolling 3-variable recurrence register | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **Math** | Fibonacci Tabulation | `Dynamic_Programming/1D_Linear/Fibonacci_Tabulation.cpp` | C++ | Bottom-up dynamic programming tabulation | $\mathcal{O}(N)$ | $\mathcal{O}(N)$ |
+| **LC 121** | Best Time to Buy and Sell Stock I | `Dynamic_Programming/State_Machines/0121_Best_Time_to_Buy_and_Sell_Stock_I.java` | Java | Prefix minimum price maintenance with max single-day spread | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **LC 122** | Best Time to Buy and Sell Stock II | `Dynamic_Programming/State_Machines/0122_Best_Time_to_Buy_and_Sell_Stock_II.java` | Java | Greedy peak-valley accumulation: $\sum \max(0, P[i] - P[i-1])$ | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **LC 123** | Best Time to Buy and Sell Stock III | `Dynamic_Programming/State_Machines/0123_Best_Time_to_Buy_and_Sell_Stock_III.java` | Java | 4-state finite state machine (Buy1, Sell1, Buy2, Sell2) | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **LC 188** | Best Time to Buy and Sell Stock IV | `Dynamic_Programming/State_Machines/0188_Best_Time_to_Buy_and_Sell_Stock_IV.java` | Java | Generalized $K$-transaction DP with online $\text{maxDiff}$ optimization | $\mathcal{O}(k \cdot N)$ | $\mathcal{O}(k \cdot N)$ |
+| **LC 118** | Pascal's Triangle | `Dynamic_Programming/2D_Combinatorial/0118_Pascals_Triangle.cpp` | C++ | Dynamic 2D construction using adjacent parent sum | $\mathcal{O}(N^2)$ | $\mathcal{O}(1)$ |
+| **Graph** | Floyd-Warshall | `Dynamic_Programming/2D_Combinatorial/Floyd_Warshall_All_Pairs_Shortest_Path.cpp` | C++ | All-pairs shortest paths via dynamic triple nested intermediate nodes | $\mathcal{O}(V^3)$ | $\mathcal{O}(V^2)$ |
 
-### 7. Monotonic Stack & Linear Scaffolding
-LIFO structure maintaining strict ordering invariants for immediate boundary resolution.
+### 6. Backtracking
+Permutation trees with branch pruning and frequency-based duplicate skipping.
 
-| LeetCode ID | Problem Name | Language | Strategy / Core Mechanism | Time Complexity | Space Complexity |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **LC 20** | Valid Parentheses | Java | Bracket matching with top-of-stack validation | $\mathcal{O}(N)$ | $\mathcal{O}(N)$ |
-| **LC 71** | Simplify Path | Java | POSIX path tokenization with directory pop/push resolution | $\mathcal{O}(N)$ | $\mathcal{O}(N)$ |
-| **LC 143** | Reorder List | Java | Stack-assisted node collection paired with dual-end link splicing | $\mathcal{O}(N)$ | $\mathcal{O}(N)$ |
-| **LC 150** | Evaluate Reverse Polish Notation | Java | Operand stack with binary operator reduction | $\mathcal{O}(N)$ | $\mathcal{O}(N)$ |
-| **LC 682** | Baseball Game | Java | Record state simulation via dynamic score stack | $\mathcal{O}(N)$ | $\mathcal{O}(N)$ |
-| **LC 739** | Daily Temperatures | Java | Monotonic decreasing index stack for next warmer day span | $\mathcal{O}(N)$ | $\mathcal{O}(N)$ |
+| LeetCode ID | Problem Name | File Path | Language | Strategy / Core Mechanism | Time Complexity | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **LC 47** | Permutations II | `Backtracking/0047_Permutations_II.cpp` | C++ | Backtracking with sorted frequency array to prune duplicate branches | $\mathcal{O}(N \cdot N!)$ | $\mathcal{O}(N)$ |
 
-### 8. Hash Mapping, Sets & Frequency Tables
-Direct-address lookup, frequency histogramming, and inverted indexing.
+### 7. Graph & Grid Traversal
+Orthogonal matrix traversals and connected component counting.
 
-| LeetCode ID | Problem Name | Language | Strategy / Core Mechanism | Time Complexity | Space Complexity |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **LC 1** | Two Sum | Java | Single-pass inverted index mapping complement to index | $\mathcal{O}(N)$ | $\mathcal{O}(N)$ |
-| **LC 169** | Majority Element | Java | Frequency map counting / linear hash aggregation | $\mathcal{O}(N)$ | $\mathcal{O}(N)$ |
-| **LC 205** | Isomorphic Strings | Java | Dual forward-backward character mapping validation | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
-| **LC 217** | Contains Duplicate | Java | Hash set insertion with early-exit duplicate detection | $\mathcal{O}(N)$ | $\mathcal{O}(N)$ |
-| **LC 219** | Contains Duplicate II | Java | Sliding hash map tracking latest index within distance $K$ | $\mathcal{O}(N)$ | $\mathcal{O}(K)$ |
-| **LC 242** | Valid Anagram | Java | Frequency counting array with delta cancellation | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
-| **LC 349** | Intersection of Two Arrays | Java | Hash set intersection filtering duplicates | $\mathcal{O}(N + M)$ | $\mathcal{O}(N)$ |
-| **LC 383** | Ransom Note | Java | Frequency count subtraction over source character set | $\mathcal{O}(N + M)$ | $\mathcal{O}(1)$ |
-| **LC 387** | First Unique Character in a String | Java | Two-pass frequency histogram and first unique scan | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
-| **LC 2215** | Find the Difference of Two Arrays | Java | Dual set construction with symmetric difference subtraction | $\mathcal{O}(N + M)$ | $\mathcal{O}(N + M)$ |
-
-### 9. Queues, Sorting & Backtracking
-FIFO buffering, permutation trees with branch pruning, and categorical hash grouping.
-
-| LeetCode ID | Problem Name | Language | Strategy / Core Mechanism | Time Complexity | Space Complexity |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **LC 47** | Permutations II | C++ | Backtracking with sorted frequency array to prune duplicate branches | $\mathcal{O}(N \cdot N!)$ | $\mathcal{O}(N)$ |
-| **LC 49** | Group Anagrams | C++ | Canonical sorted key indexing in unordered hash map | $\mathcal{O}(N \cdot K \log K)$ | $\mathcal{O}(N \cdot K)$ |
-| **LC 225** | Implement Stack using Queues | Java | Single queue rotation on push to preserve LIFO order | $\mathcal{O}(N)$ push, $\mathcal{O}(1)$ pop | $\mathcal{O}(N)$ |
-| **LC 933** | Number of Recent Calls | Java | Monotonic sliding time window queue eviction ($t - 3000$) | $\mathcal{O}(1)$ amortized | $\mathcal{O}(W)$ |
-
-### 10. Matrices & Graph Algorithms
-2D transformations and topological graph traversals.
-
-| LeetCode ID | Problem Name | Language | Strategy / Core Mechanism | Time Complexity | Space Complexity |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **LC 200** | Number of Islands | Java | 4-directional matrix BFS traversal with visited coordinate tracking | $\mathcal{O}(M \cdot N)$ | $\mathcal{O}(\min(M, N))$ |
-| **LC 867** | Transpose Matrix | Java | Dimension inversion: $B[j][i] = A[i][j]$ | $\mathcal{O}(M \cdot N)$ | $\mathcal{O}(M \cdot N)$ |
-| **LC 1572** | Matrix Diagonal Sum | Java | Single-pass primary and secondary diagonal accumulation | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| LeetCode ID | Problem Name | File Path | Language | Strategy / Core Mechanism | Time Complexity | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **LC 200** | Number of Islands | `Graph/0200_Number_of_Islands.java` | Java | 4-directional matrix BFS traversal with visited coordinate tracking | $\mathcal{O}(M \cdot N)$ | $\mathcal{O}(\min(M, N))$ |
 
 ---
 
@@ -239,34 +232,41 @@ FIFO buffering, permutation trees with branch pruning, and categorical hash grou
 
 ```
 .
-|-- 2D-Array/                               # Matrix transformations and linear algebra
-|   |-- MatrixDiagonalSum.java              # LC 1572: Matrix Diagonal Sum
-|   `-- TransposeMatrix.java                # LC 867: Transpose Matrix
-|-- Best-Time-To-Buy-And-Sell-Stocks/       # Finite-state machine and DP progressions
-|   |-- 121_Best_Time_To_Buy_And_Sell_Stock_I.java
-|   |-- 122_Best_Time_To_Buy_And_Sell_Stock_II.java
-|   |-- 123_Best_Time_To_Buy_And_Sell_Stock_III.java
-|   `-- 188_Best_Time_To_Buy_And_Sell_Stock_IV.java
-|-- Binary-Search-2D-Arrays/                # Multi-dimensional & rotated array bisections
-|   |-- FindMinimumInRotatedSortedArrayII.java
-|   |-- FindMinimumInSortedArray.java
-|   `-- SearchA2DArray.java                 # LC 74: Search a 2D Matrix
-|-- Binary-Search-Two-Pointers/             # Phase-structured search & pointer patterns
-|   |-- Phase1_Core_BS/                     # Core binary search primitives (LC 33, 34, 35, 69, 153, 162, 704)
-|   `-- Phase2_TwoPointers/                 # Advanced pointer sweeps (LC 11, 16, 18, 42, 80, 283, 680)
-|-- Dynamic_Programming/                    # Iterative DP and combinatorial optimization
-|   |-- Phase_1_DP_Basics/                  # Fibonacci, bit counting, staircase transitions
-|   `-- Phase_2_DP_Medium/                  # Coin change, Pascal's triangle, House Robber, Floyd-Warshall
-|-- Graph/                                  # Graph traversal & connectivity algorithms
-|   `-- IslandCounter.java                  # LC 200: Number of Islands (BFS Wavefront)
-|-- HashMap/                                # Hash sets, frequency tables & bijective mappings (10 files)
-|-- Queue/                                  # Queue-based state trackers and adapters (LC 225, 933)
-|-- Sorting/                                # Backtracking and canonical key grouping (LC 47, 49)
-|-- Stack/                                  # Monotonic stacks and LIFO evaluation (LC 20, 71, 143, 150, 682, 739)
-`-- Two_Pointers/                           # Specialized two-pointer taxonomies
-    |-- Opposite_Direction/                 # LC 11, 61, 125, 167, 611, 881
-    |-- Same_Direction/                     # LC 19, 26, 283, 876, 986
-    `-- Sliding_Window/                     # LC 3, 30, 76, 438, 567, 643, 2958
+|-- Arrays_and_Hashing/                     # Direct-address lookup, hash sets & matrices
+|   |-- 0001_Two_Sum.java
+|   |-- 0049_Group_Anagrams.cpp
+|   |-- 0169_Majority_Element.java
+|   |-- 0205_Isomorphic_Strings.java
+|   |-- 0217_Contains_Duplicate.java
+|   |-- 0219_Contains_Duplicate_II.java
+|   |-- 0242_Valid_Anagram.java
+|   |-- 0349_Intersection_of_Two_Arrays.java
+|   |-- 0383_Ransom_Note.java
+|   |-- 0387_First_Unique_Character_in_a_String.java
+|   |-- 2215_Find_the_Difference_of_Two_Arrays.java
+|   `-- Matrix/
+|       |-- 0867_Transpose_Matrix.java
+|       `-- 1572_Matrix_Diagonal_Sum.java
+|-- Two_Pointers/                           # Pointer convergence and sliding windows
+|   |-- Opposite_Direction/                 # LC 11, 16, 18, 42, 61, 125, 167, 611, 680, 881
+|   |-- Same_Direction/                     # LC 19, 26, 80, 283, 876, 986
+|   `-- Sliding_Window/                     # LC 3, 30, 76, 438, 567, 643, 2958
+|-- Binary_Search/                          # Discrete bisection and logarithmic search
+|   |-- 1D_Arrays/                          # LC 33, 34, 35, 153, 162, 704
+|   |-- 2D_Matrices/                        # LC 74, 154
+|   `-- Domain_Search/                      # LC 69 (Sqrt)
+|-- Stack_and_Queue/                        # Monotonic ordering and LIFO/FIFO evaluation
+|   |-- Monotonic_Stack/                    # LC 739 (Daily Temperatures)
+|   |-- LIFO_Evaluation/                    # LC 20, 71, 143, 150, 682
+|   `-- Queue_Adapters/                     # LC 225, 933
+|-- Dynamic_Programming/                    # Linear transitions, state machines & 2D DP
+|   |-- 1D_Linear/                          # LC 70, 198, 322, 338, 1137, Fibonacci
+|   |-- State_Machines/                     # Stock Series: LC 121, 122, 123, 188
+|   `-- 2D_Combinatorial/                   # LC 118, Floyd-Warshall
+|-- Backtracking/                           # Branch-and-bound combinatorial generation
+|   `-- 0047_Permutations_II.cpp
+`-- Graph/                                  # Matrix BFS wavefront and connectivity
+    `-- 0200_Number_of_Islands.java
 ```
 
 ---
@@ -291,30 +291,30 @@ All implementations include self-contained execution drivers or test cases for i
 
 ```bash
 # Example 1: Compile and run Dynamic Programming (Stock Series)
-javac Best-Time-To-Buy-And-Sell-Stocks/188_Best_Time_To_Buy_And_Sell_Stock_IV.java
-java -cp Best-Time-To-Buy-And-Sell-Stocks Best_Time_To_Buy_And_Sell_Stock.Best_Time_To_Buy_And_Sell_Stock_IV
+javac Dynamic_Programming/State_Machines/0188_Best_Time_to_Buy_and_Sell_Stock_IV.java
+java -cp Dynamic_Programming/State_Machines Best_Time_To_Buy_And_Sell_Stock_IV
 
 # Example 2: Compile and run Monotonic Stack (Daily Temperatures)
-javac Stack/DailyTemperatures.java
-java -cp Stack DailyTemperatue
+javac Stack_and_Queue/Monotonic_Stack/0739_Daily_Temperatures.java
+java -cp Stack_and_Queue/Monotonic_Stack DailyTemperatue
 
 # Example 3: Compile and run Opposite Direction Pointers (Valid Triangle Number)
-javac Two_Pointers/Opposite_Direction/611_Valid_Triangle_Number.java
-java -cp Two_Pointers/Opposite_Direction Two_Pointers.Opposite_Direction.Valid_Triangle_Number
+javac Two_Pointers/Opposite_Direction/0611_Valid_Triangle_Number.java
+java -cp Two_Pointers/Opposite_Direction Valid_Triangle_Number
 ```
 
 ### Compiling and Running C++ Implementations
 
 ```bash
 # Example 1: Compile with C++17 and -O3 optimization (Sliding Window: Minimum Window Substring)
-g++ -std=c++17 -O3 -Wall -Wextra Two_Pointers/Sliding_Window/76_Minimum_Window_Substring.cpp -o min_window
+g++ -std=c++17 -O3 -Wall -Wextra Two_Pointers/Sliding_Window/0076_Minimum_Window_Substring.cpp -o min_window
 ./min_window
 
 # Example 2: Compile and run Binary Search (Search in Rotated Sorted Array)
-g++ -std=c++17 -O3 -Wall -Wextra Binary-Search-Two-Pointers/Phase1_Core_BS/33_Search_in_Rotated_Sorted_Array.cpp -o rotated_search
+g++ -std=c++17 -O3 -Wall -Wextra Binary_Search/1D_Arrays/0033_Search_in_Rotated_Sorted_Array.cpp -o rotated_search
 ./rotated_search
 
 # Example 3: Compile and run Dynamic Programming (Coin Change)
-g++ -std=c++17 -O3 -Wall -Wextra Dynamic_Programming/Phase_2_DP_Medium/coinChange.cpp -o coin_change
+g++ -std=c++17 -O3 -Wall -Wextra Dynamic_Programming/1D_Linear/0322_Coin_Change.cpp -o coin_change
 ./coin_change
 ```
