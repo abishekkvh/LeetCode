@@ -1,0 +1,37 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Compiled Binaries & Objects
+*.out
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+*.dSYM/
+
+# Java Bytecode & Archives
+*.class
+*.jar
+*.war
+*.ear
+
+# IDE & Editor Configurations
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+
+# Temporary / Swap files
+*.swp
+*.swo
+*~

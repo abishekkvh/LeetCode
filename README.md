@@ -248,7 +248,7 @@ FIFO buffering, permutation trees with branch pruning, and categorical hash grou
 |   |-- 123_Best_Time_To_Buy_And_Sell_Stock_III.java
 |   `-- 188_Best_Time_To_Buy_And_Sell_Stock_IV.java
 |-- Binary-Search-2D-Arrays/                # Multi-dimensional & rotated array bisections
-|   |-- FindMinimumInRotatedSortedArrayII .java
+|   |-- FindMinimumInRotatedSortedArrayII.java
 |   |-- FindMinimumInSortedArray.java
 |   `-- SearchA2DArray.java                 # LC 74: Search a 2D Matrix
 |-- Binary-Search-Two-Pointers/             # Phase-structured search & pointer patterns
