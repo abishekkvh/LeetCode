@@ -2,7 +2,7 @@
 
 > High-performance, pattern-oriented algorithmic reference in modern C++ and Java, focusing on formal asymptotic complexity bounds, zero-allocation in-place mutations, cache locality, and state-machine dynamic programming.
 
-**Languages:** Java (JDK 17+) | C++ (ISO C++17) &nbsp;|&nbsp; **Implementations:** 69 Production-Grade Solutions &nbsp;|&nbsp; **Focus:** Time/Space Asymptotics, Invariant Correctness, Low-Overhead Primitives
+**Languages:** Java (JDK 17+) | C++ (ISO C++17) &nbsp;|&nbsp; **Implementations:** 70 Production-Grade Solutions &nbsp;|&nbsp; **Focus:** Time/Space Asymptotics, Invariant Correctness, Low-Overhead Primitives
 
 ---
 
@@ -119,6 +119,7 @@ Direct-address lookup, frequency histogramming, inverted indexing, and 2D matrix
 | **LC 217** | Contains Duplicate | `Arrays_and_Hashing/0217_Contains_Duplicate.java` | Java | Hash set insertion with early-exit duplicate detection | $\mathcal{O}(N)$ | $\mathcal{O}(N)$ |
 | **LC 219** | Contains Duplicate II | `Arrays_and_Hashing/0219_Contains_Duplicate_II.java` | Java | Sliding hash map tracking latest index within distance $K$ | $\mathcal{O}(N)$ | $\mathcal{O}(K)$ |
 | **LC 242** | Valid Anagram | `Arrays_and_Hashing/0242_Valid_Anagram.java` | Java | Frequency counting array with delta cancellation | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **LC 290** | Word Pattern | `Arrays_and_Hashing/0290_Word_Pattern.java` | Java | Bijective character-to-token mapping with dual lookup validation | $\mathcal{O}(N)$ | $\mathcal{O}(U)$ |
 | **LC 349** | Intersection of Two Arrays | `Arrays_and_Hashing/0349_Intersection_of_Two_Arrays.java` | Java | Hash set intersection filtering duplicates | $\mathcal{O}(N + M)$ | $\mathcal{O}(N)$ |
 | **LC 383** | Ransom Note | `Arrays_and_Hashing/0383_Ransom_Note.java` | Java | Frequency count subtraction over source character set | $\mathcal{O}(N + M)$ | $\mathcal{O}(1)$ |
 | **LC 387** | First Unique Character in a String | `Arrays_and_Hashing/0387_First_Unique_Character_in_a_String.java` | Java | Two-pass frequency histogram and first unique scan | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
@@ -241,6 +242,7 @@ Orthogonal matrix traversals and connected component counting.
 |   |-- 0217_Contains_Duplicate.java
 |   |-- 0219_Contains_Duplicate_II.java
 |   |-- 0242_Valid_Anagram.java
+|   |-- 0290_Word_Pattern.java
 |   |-- 0349_Intersection_of_Two_Arrays.java
 |   |-- 0383_Ransom_Note.java
 |   |-- 0387_First_Unique_Character_in_a_String.java
