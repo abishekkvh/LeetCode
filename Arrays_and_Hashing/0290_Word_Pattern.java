@@ -56,3 +56,4 @@ class WordPattern {
         System.out.println(wordPattern(pattern, s));
     }
 }
+

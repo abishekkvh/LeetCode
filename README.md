@@ -2,7 +2,7 @@
 
 > High-performance, pattern-oriented algorithmic reference in modern C++ and Java, focusing on formal asymptotic complexity bounds, zero-allocation in-place mutations, cache locality, and state-machine dynamic programming.
 
-**Languages:** Java (JDK 17+) | C++ (ISO C++17) &nbsp;|&nbsp; **Implementations:** 70 Production-Grade Solutions &nbsp;|&nbsp; **Focus:** Time/Space Asymptotics, Invariant Correctness, Low-Overhead Primitives
+**Languages:** Java (JDK 17+) | C++ (ISO C++17) &nbsp;|&nbsp; **Implementations:** 72 Production-Grade Solutions &nbsp;|&nbsp; **Focus:** Time/Space Asymptotics, Invariant Correctness, Low-Overhead Primitives
 
 ---
 
@@ -114,6 +114,7 @@ Direct-address lookup, frequency histogramming, inverted indexing, and 2D matrix
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **LC 1** | Two Sum | `Arrays_and_Hashing/0001_Two_Sum.java` | Java | Single-pass inverted index mapping complement to index | $\mathcal{O}(N)$ | $\mathcal{O}(N)$ |
 | **LC 49** | Group Anagrams | `Arrays_and_Hashing/0049_Group_Anagrams.cpp` | C++ | Canonical sorted key indexing in unordered hash map | $\mathcal{O}(N \cdot K \log K)$ | $\mathcal{O}(N \cdot K)$ |
+| **LC 49** | Group Anagrams | `Arrays_and_Hashing/0049_Group_Anagrams.java` | Java | Frequency array verification with visited tracking | $\mathcal{O}(N^2 \cdot K)$ | $\mathcal{O}(N \cdot K)$ |
 | **LC 169** | Majority Element | `Arrays_and_Hashing/0169_Majority_Element.java` | Java | Frequency map counting / linear hash aggregation | $\mathcal{O}(N)$ | $\mathcal{O}(N)$ |
 | **LC 205** | Isomorphic Strings | `Arrays_and_Hashing/0205_Isomorphic_Strings.java` | Java | Dual forward-backward character mapping validation | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
 | **LC 217** | Contains Duplicate | `Arrays_and_Hashing/0217_Contains_Duplicate.java` | Java | Hash set insertion with early-exit duplicate detection | $\mathcal{O}(N)$ | $\mathcal{O}(N)$ |
@@ -158,6 +159,7 @@ Bidirectional pointer convergence, fast-and-slow differential strides, and dynam
 | LeetCode ID | Problem Name | File Path | Language | Strategy / Core Mechanism | Time Complexity | Space Complexity |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **LC 3** | Longest Substring Without Repeating Characters | `Two_Pointers/Sliding_Window/0003_Longest_Substring_Without_Repeating_Characters.cpp` | C++ | ASCII frequency / index tracker with left window boundary jump | $\mathcal{O}(N)$ | $\mathcal{O}(\min(N, \Sigma))$ |
+| **LC 3** | Longest Substring Without Repeating Characters | `Two_Pointers/Sliding_Window/0003_Longest_Substring_Without_Repeating_Characters.java` | Java | Dynamic sliding window with last seen hash map and visual pointer step table | $\mathcal{O}(N)$ | $\mathcal{O}(\min(N, \Sigma))$ |
 | **LC 30** | Substring with Concatenation of All Words | `Two_Pointers/Sliding_Window/0030_Substring_with_Concatenation_of_All_Words.cpp` | C++ | Multi-offset sliding window over uniform token chunks | $\mathcal{O}(N \cdot L)$ | $\mathcal{O}(M \cdot L)$ |
 | **LC 76** | Minimum Window Substring | `Two_Pointers/Sliding_Window/0076_Minimum_Window_Substring.cpp` | C++ | Direct-address frequency table with match counter and left contraction | $\mathcal{O}(N + M)$ | $\mathcal{O}(1)$ |
 | **LC 438** | Find All Anagrams in a String | `Two_Pointers/Sliding_Window/0438_Find_All_Anagrams_in_a_String.cpp` | C++ | Fixed window size $K$ sliding frequency match against target | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
@@ -237,6 +239,7 @@ Orthogonal matrix traversals and connected component counting.
 |-- Arrays_and_Hashing/                     # Direct-address lookup, hash sets & matrices
 |   |-- 0001_Two_Sum.java
 |   |-- 0049_Group_Anagrams.cpp
+|   |-- 0049_Group_Anagrams.java
 |   |-- 0169_Majority_Element.java
 |   |-- 0205_Isomorphic_Strings.java
 |   |-- 0217_Contains_Duplicate.java
