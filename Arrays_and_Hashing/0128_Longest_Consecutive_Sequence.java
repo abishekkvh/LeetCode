@@ -50,3 +50,4 @@ class LongestConsecutiveSequence {
         System.out.println(longestConsecutive(nums));
     }
 }
+

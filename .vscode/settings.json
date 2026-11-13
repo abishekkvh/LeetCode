@@ -1,6 +1,21 @@
 {
     "java.project.sourcePaths": [
-        "."
+        "Arrays_and_Hashing",
+        "Arrays_and_Hashing/Matrix",
+        "Two_Pointers/Opposite_Direction",
+        "Two_Pointers/Same_Direction",
+        "Two_Pointers/Sliding_Window",
+        "Binary_Search/1D_Arrays",
+        "Binary_Search/2D_Matrices",
+        "Binary_Search/Domain_Search",
+        "Stack_and_Queue/Monotonic_Stack",
+        "Stack_and_Queue/LIFO_Evaluation",
+        "Stack_and_Queue/Queue_Adapters",
+        "Dynamic_Programming/1D_Linear",
+        "Dynamic_Programming/State_Machines",
+        "Dynamic_Programming/2D_Combinatorial",
+        "Backtracking",
+        "Graph"
     ],
     "java.format.settings.url": ".vscode/eclipse-formatter.xml",
     "java.format.settings.profile": "Allman",

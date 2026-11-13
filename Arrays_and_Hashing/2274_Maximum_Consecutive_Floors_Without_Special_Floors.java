@@ -50,3 +50,4 @@ class MaximumConsecutiveFloorsWithoutSpecialFloors {
         System.out.println(maxConsecutive(bottom, top, special));
     }
 }
+
