@@ -20,7 +20,7 @@ This repository organizes LeetCode problems by fundamental algorithmic paradigms
 | **Stack & Queue** | Monotonic Stack, LIFO Evaluation, Queue Adapters | Nearest greater element, expression parsing | Monotonic ordering maintenance, FIFO/LIFO emulation |
 | **Dynamic Programming** | 1D Linear, State Machines, 2D Combinatorial | Tabulation, memoization, state transitions | Optimal substructure, rolling variable compaction |
 | **Backtracking** | Permutations, Constraint Satisfaction (Sudoku) | Branch-and-bound recursion | In-place swap, state pruning, constraint propagation |
-| **Graph** | Grid Traversal, Connectivity | Breadth-First Search (BFS), Depth-First Search (DFS) | Connected components, wavefront expansion |
+| **Graph** | Grid Traversal, Topological Sort, Connectivity | BFS, DFS, Kahn's Algorithm | Connected components, in-degree dependency ordering, DAG cycle detection |
 
 ---
 
