@@ -25,6 +25,7 @@ and space complexity, clear invariants, and clean implementation practices.
 | **Dynamic Programming** | 1D Linear, State Machines, 2D Combinatorial        | Tabulation, memoization, state transitions  | Optimal substructure, rolling variable compaction                        |
 | **Backtracking**        | Permutations, Constraint Satisfaction (Sudoku)     | Branch-and-bound recursion                  | In-place swap, state pruning, constraint propagation                     |
 | **Graph**               | Grid Traversal, Topological Sort, Connectivity     | BFS, DFS, Kahn's Algorithm                  | Connected components, in-degree dependency ordering, DAG cycle detection |
+| **Bit Manipulation**    | Bitwise Arithmetic, Bitmasking                     | Bitwise XOR, AND, shift operations          | Carry propagation, in-place binary state transitions                     |
 
 ---
 
@@ -51,7 +52,8 @@ and space complexity, clear invariants, and clean implementation practices.
 |   |-- State_Machines/
 |   `-- 2D_Combinatorial/
 |-- Backtracking/
-`-- Graph/
+|-- Graph/
+`-- Bit_Manipulation/
 ```
 
 All solutions follow the standard numerical prefix convention:

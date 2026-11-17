@@ -22,7 +22,9 @@ Icon
 *.ear
 
 # IDE & Editor Configurations
-.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/eclipse-formatter.xml
 .idea/
 *.iml
 *.ipr
