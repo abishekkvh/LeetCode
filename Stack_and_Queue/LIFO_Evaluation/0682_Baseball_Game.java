@@ -1,8 +1,6 @@
-import java.util.*;
-
 /*
 Problem: Baseball Game (LeetCode 682)
-Category: Stack
+Category: Stack / LIFO Evaluation
 Difficulty: Easy
 
 Description:
@@ -30,37 +28,50 @@ Space Complexity: O(n) to store the scores in the stack.
 
 import java.util.*;
 
-class BaseballGame {
-    public static int calPoints(String[] operations) {
+class BaseballGame 
+{
+    public static int calPoints(String[] operations) 
+    {
+        Stack<Integer> stack = new Stack<>();
 
-        Stack<Integer> op = new Stack<>();
-        int result = 0;
-
-        for (String ch : operations) {
-            if (ch.equals("+")) {
-                int op1 = op.get(op.size() - 1);
-                int op2 = op.get(op.size() - 2);
-                op.push(op1 + op2);
-            } else if (ch.equals("D")) {
-                int doubled = op.peek() * 2;
-                op.push(doubled);
-            } else if (ch.equals("C")) {
-                op.pop();
-            } else {
-                op.push(Integer.parseInt(ch));
+        for (String op : operations) 
+        {
+            if (op.equals("+")) 
+            {
+                int top = stack.pop();
+                int second = stack.peek();
+                stack.push(top);
+                stack.push(top + second);
+            } 
+            else if (op.equals("D")) 
+            {
+                stack.push(stack.peek() * 2);
+            } 
+            else if (op.equals("C")) 
+            {
+                stack.pop();
+            } 
+            else 
+            {
+                stack.push(Integer.parseInt(op));
             }
         }
 
-        int ans = 0;
-        for (int num : op) {
-            ans += num;
+        int total = 0;
+        for (int score : stack) 
+        {
+            total += score;
         }
 
-        return ans;
+        return total;
     }
 
-    public static void main(String[] args) {
-        String[] operations = { "5", "2", "C", "D", "+" };
-        System.out.println(calPoints(operations));
+    public static void main(String[] args) 
+    {
+        String[] ops1 = {"5", "2", "C", "D", "+"};
+        System.out.println("Output 1: " + calPoints(ops1)); // Expected: 30
+
+        String[] ops2 = {"5", "-2", "4", "C", "D", "9", "+", "+"};
+        System.out.println("Output 2: " + calPoints(ops2)); // Expected: 27
     }
 }

@@ -1,8 +1,6 @@
-import java.util.*;
-
 /*
 Problem: Valid Parentheses (LeetCode 20)
-Category: Stack
+Category: Stack / LIFO Evaluation
 Difficulty: Easy
 
 Description:
@@ -20,31 +18,46 @@ Approach:
    - Peek the top of the stack. If it matches the corresponding opening bracket for the current closing bracket, pop it. Otherwise, return false.
 3. After the loop, if the stack is empty, return true (all brackets matched); otherwise, return false.
 
+Alternative Approach (Hash Map):
+- Maintain a map of closing bracket -> opening bracket.
+- For each closing bracket, verify that the stack is non-empty and the top matches map.get(ch).
+
 Time Complexity: O(n) where n is the length of the string.
 Space Complexity: O(n) for the stack in the worst case (e.g., all opening brackets).
 */
 
 import java.util.*;
 
-class ValidParanthesis {
-    public static boolean isValid(String s) {
+class ValidParentheses 
+{
+    // Approach 1: Direct conditional matching (O(1) auxiliary space beyond stack)
+    public static boolean isValid(String s) 
+    {
         Stack<Character> stack = new Stack<>();
 
-        for (int i = 0; i < s.length(); i++) {
+        for (int i = 0; i < s.length(); i++) 
+        {
             char ch = s.charAt(i);
 
-            if (ch == '{' || ch == '(' || ch == '[') {
+            if (ch == '{' || ch == '(' || ch == '[') 
+            {
                 stack.push(ch);
-            } else {
-                if (stack.isEmpty()) {
+            } 
+            else 
+            {
+                if (stack.isEmpty()) 
+                {
                     return false;
                 }
 
                 char top = stack.peek();
 
-                if ((top == '{' && ch == '}') || (top == '(' && ch == ')') || (top == '[' && ch == ']')) {
+                if ((top == '{' && ch == '}') || (top == '(' && ch == ')') || (top == '[' && ch == ']')) 
+                {
                     stack.pop();
-                } else {
+                } 
+                else 
+                {
                     return false;
                 }
             }
@@ -52,9 +65,40 @@ class ValidParanthesis {
         return stack.isEmpty();
     }
 
-    public static void main(String[] args) {
-        String s = "()[]{}";
-        System.out.println(isValid(s));
+    // Approach 2: Hash Map lookup for bracket matching
+    public static boolean isValidWithMap(String s) 
+    {
+        Stack<Character> stack = new Stack<>();
+        Map<Character, Character> map = new HashMap<>();
+
+        map.put(')', '(');
+        map.put('}', '{');
+        map.put(']', '[');
+
+        for (int i = 0; i < s.length(); i++) 
+        {
+            char ch = s.charAt(i);
+
+            if (ch == '(' || ch == '{' || ch == '[') 
+            {
+                stack.push(ch);
+            } 
+            else 
+            {
+                if (stack.isEmpty() || !map.get(ch).equals(stack.peek())) 
+                {
+                    return false;
+                }
+                stack.pop();
+            }
+        }
+        return stack.isEmpty();
     }
 
+    public static void main(String[] args) 
+    {
+        String s = "()[]{}";
+        System.out.println("Approach 1 (Direct):  " + isValid(s));
+        System.out.println("Approach 2 (HashMap): " + isValidWithMap(s));
+    }
 }
