@@ -15,24 +15,33 @@ Space Complexity: O(1) - at most 9 elements per HashSet
 
 import java.util.*;
 
-class ValidSudoku {
-    public static boolean isValidSudoku(char[][] board) {
-        for (int i = 0; i < 9; i++) {
+class ValidSudoku
+{
+    public static boolean isValidSudoku(char[][] board)
+    {
+        for (int i = 0; i < 9; i++)
+        {
             HashSet<Character> row = new HashSet<>();
             HashSet<Character> col = new HashSet<>();
 
-            for (int j = 0; j < 9; j++) {
-                if (board[i][j] != '.') {
-                    if (row.contains(board[i][j])) {
+            for (int j = 0; j < 9; j++)
+            {
+                if (board[i][j] != '.')
+                {
+                    if (row.contains(board[i][j]))
+                    {
                         return false;
                     }
                     row.add(board[i][j]);
                 }
             }
 
-            for (int j = 0; j < 9; j++) {
-                if (board[j][i] != '.') {
-                    if (col.contains(board[j][i])) {
+            for (int j = 0; j < 9; j++)
+            {
+                if (board[j][i] != '.')
+                {
+                    if (col.contains(board[j][i]))
+                    {
                         return false;
                     }
                     col.add(board[j][i]);
@@ -40,14 +49,20 @@ class ValidSudoku {
             }
         }
 
-        for (int i = 0; i < 9; i += 3) {
-            for (int j = 0; j < 9; j += 3) {
+        for (int i = 0; i < 9; i += 3)
+        {
+            for (int j = 0; j < 9; j += 3)
+            {
                 HashSet<Character> box = new HashSet<>();
 
-                for (int k = i; k < i + 3; k++) {
-                    for (int l = j; l < j + 3; l++) {
-                        if (board[k][l] != '.') {
-                            if (box.contains(board[k][l])) {
+                for (int k = i; k < i + 3; k++)
+                {
+                    for (int l = j; l < j + 3; l++)
+                    {
+                        if (board[k][l] != '.')
+                        {
+                            if (box.contains(board[k][l]))
+                            {
                                 return false;
                             }
                             box.add(board[k][l]);
@@ -60,18 +75,13 @@ class ValidSudoku {
         return true;
     }
 
-    public static void main(String[] args) {
-        char[][] board = {
-            {'5','3','.','.','7','.','.','.','.'},
-            {'6','.','.','1','9','5','.','.','.'},
-            {'.','9','8','.','.','.','.','6','.'},
-            {'8','.','.','.','6','.','.','.','3'},
-            {'4','.','.','8','.','3','.','.','1'},
-            {'7','.','.','.','2','.','.','.','6'},
-            {'.','6','.','.','.','.','2','8','.'},
-            {'.','.','.','4','1','9','.','.','5'},
-            {'.','.','.','.','8','.','.','7','9'}
-        };
+    public static void main(String[] args)
+    {
+        char[][] board = { { '5', '3', '.', '.', '7', '.', '.', '.', '.' },
+                { '6', '.', '.', '1', '9', '5', '.', '.', '.' }, { '.', '9', '8', '.', '.', '.', '.', '6', '.' },
+                { '8', '.', '.', '.', '6', '.', '.', '.', '3' }, { '4', '.', '.', '8', '.', '3', '.', '.', '1' },
+                { '7', '.', '.', '.', '2', '.', '.', '.', '6' }, { '.', '6', '.', '.', '.', '.', '2', '8', '.' },
+                { '.', '.', '.', '4', '1', '9', '.', '.', '5' }, { '.', '.', '.', '.', '8', '.', '.', '7', '9' } };
 
         System.out.println(isValidSudoku(board));
     }
