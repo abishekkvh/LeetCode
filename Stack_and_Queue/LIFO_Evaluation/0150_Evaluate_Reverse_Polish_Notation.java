@@ -1,8 +1,6 @@
-import java.util.*;
-
 /*
 Problem: Evaluate Reverse Polish Notation (LeetCode 150)
-Category: Stack
+Category: Stack & Queue / LIFO Evaluation
 Difficulty: Medium
 
 Description:
@@ -20,27 +18,33 @@ Approach:
 1. Use a Stack to store integer operands.
 2. Iterate through each token in the input array:
    - If the token is a number, parse it as an integer and push it onto the stack.
-   - If the token is an operator, pop the top two operands from the stack.
-   - Apply the operator to the operands in the correct order and push the result back onto the stack.
-3. After all tokens are processed, the only value left in the stack is the final result.
+   - If the token is an operator, pop the top two operands from the stack (note order: second pop is left operand, first pop is right operand).
+   - Apply the operator and push the result back onto the stack.
+3. After all tokens are processed, the only remaining value in the stack is the final result.
 
-Time Complexity: O(n) where n is the number of tokens.
-Space Complexity: O(n) for storing operands in the stack.
+Time Complexity: O(n) where n is the number of tokens
+Space Complexity: O(n) for storing operands in the stack
 */
 
-import java.util.Stack;
+import java.util.*;
 
-class EvaluateReverse {
-    public int evalRPN(String[] tokens) {
+class EvaluateReversePolishNotation 
+{
+    public static int evalRPN(String[] tokens) 
+    {
         Stack<Integer> stack = new Stack<>();
 
-        for (String token : tokens) {
-            if (isOperator(token)) {
+        for (String token : tokens) 
+        {
+            if (isOperator(token)) 
+            {
                 int b = stack.pop();
                 int a = stack.pop();
                 int result = applyOperator(a, b, token);
                 stack.push(result);
-            } else {
+            } 
+            else 
+            {
                 stack.push(Integer.parseInt(token));
             }
         }
@@ -48,12 +52,15 @@ class EvaluateReverse {
         return stack.pop();
     }
 
-    private boolean isOperator(String token) {
+    private static boolean isOperator(String token) 
+    {
         return token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/");
     }
 
-    private int applyOperator(int a, int b, String operator) {
-        switch (operator) {
+    private static int applyOperator(int a, int b, String operator) 
+    {
+        switch (operator) 
+        {
             case "+":
                 return a + b;
             case "-":
@@ -63,20 +70,19 @@ class EvaluateReverse {
             case "/":
                 return a / b;
             default:
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("Invalid operator: " + operator);
         }
     }
 
-    public static void main(String[] args) {
-        EvaluateReverse solver = new EvaluateReverse();
+    public static void main(String[] args) 
+    {
+        String[] tokens1 = {"2", "1", "+", "3", "*"};
+        System.out.println("Output 1: " + evalRPN(tokens1)); // Expected: 9
 
-        String[] tokens1 = { "2", "1", "+", "3", "*" };
-        System.out.println(solver.evalRPN(tokens1));
+        String[] tokens2 = {"4", "13", "5", "/", "+"};
+        System.out.println("Output 2: " + evalRPN(tokens2)); // Expected: 6
 
-        String[] tokens2 = { "4", "13", "5", "/", "+" };
-        System.out.println(solver.evalRPN(tokens2));
-
-        String[] tokens3 = { "10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+" };
-        System.out.println(solver.evalRPN(tokens3));
+        String[] tokens3 = {"10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"};
+        System.out.println("Output 3: " + evalRPN(tokens3)); // Expected: 22
     }
 }
