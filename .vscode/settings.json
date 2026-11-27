@@ -16,7 +16,8 @@
         "Dynamic_Programming/2D_Combinatorial",
         "Backtracking",
         "Graph",
-        "Bit_Manipulation"
+        "Bit_Manipulation",
+        "Greedy"
     ],
     "java.format.settings.url": ".vscode/eclipse-formatter.xml",
     "java.format.settings.profile": "Allman",

@@ -26,6 +26,7 @@ and space complexity, clear invariants, and clean implementation practices.
 | **Backtracking**        | Combinations, Permutations, Constraint Satisfaction (Sudoku) | Branch-and-bound recursion                  | In-place swap, state pruning, duplicate skipping, constraint propagation |
 | **Graph**               | Grid Traversal, Topological Sort, Connectivity     | BFS, DFS, Kahn's Algorithm                  | Connected components, in-degree dependency ordering, DAG cycle detection |
 | **Bit Manipulation**    | Bitwise Arithmetic, Bitmasking                     | Bitwise XOR, AND, shift operations          | Carry propagation, in-place binary state transitions                     |
+| **Greedy**              | Change-Making, Interval Scheduling, Subsequence     | Local optimal choice, greedy exchange       | Greedy choice property, optimal substructure, resource reservation       |
 
 ---
 
@@ -53,7 +54,8 @@ and space complexity, clear invariants, and clean implementation practices.
 |   `-- 2D_Combinatorial/
 |-- Backtracking/
 |-- Graph/
-`-- Bit_Manipulation/
+|-- Bit_Manipulation/
+`-- Greedy/
 ```
 
 All solutions follow the standard numerical prefix convention:
